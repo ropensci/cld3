@@ -40,7 +40,7 @@ libstatcld3.a: $(LIBCLD3)
 
 winlibs:
 	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" "../tools/winlibs.R"
-	../windows/protobuf-3.2.0/bin$(WIN)/protoc *.proto --cpp_out=.
+	../windows/protobuf-3.2.0/bin$(WIN)/protoc cld_3/protos/*.proto --cpp_out=cld_3/protos/
 
 clean:
 	rm -f $(OBJECTS) $(SHLIB) $(LIBCLD3) libstatcld3.a cld_3/protos/*.pb.cc cld_3/protos/*.pb.h
