@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^src/readme.txt$
+^src/.*\.a$
+^src/.*\.o$
+^src/a.out.dSYM$
+^.travis.yml$
+^readme.md$
+^appveyor\.yml$
+^src/cld_3/protos/.*\.pb\.h$
+^src/Makevars$

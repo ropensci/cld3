@@ -1,0 +1,13 @@
+*.so
+*.o
+*.dll
+*.out
+*.out.dSYM
+.DS_Store
+.Rproj.user
+.Rhistory
+src/*.a
+src/*.o
+src/cld_3/protos/*.pb.h
+src/cld_3/protos/*.pb.cc
+src/Makevars
