@@ -1,0 +1,47 @@
+# Links against libprotobuf build from Rtools gcc toolchain.
+COMPILED_BY ?= gcc-4.6.3
+PKG_CPPFLAGS = -I. -I../windows/protobuf-3.2.0/include
+PKG_LIBS = -L. -lstatcld3 \
+	-L../windows/protobuf-3.2.0/lib${subst gcc,,${COMPILED_BY}}${R_ARCH} -lprotobuf
+
+LIBCLD3 = \
+	libcld3/base.o \
+	libcld3/embedding_feature_extractor.o \
+	libcld3/embedding_network.o \
+	libcld3/feature_extractor.o \
+	libcld3/feature_types.o \
+	libcld3/fml_parser.o \
+	libcld3/language_identifier_features.o \
+	libcld3/lang_id_nn_params.o \
+	libcld3/nnet_language_identifier.o \
+	libcld3/registry.o \
+	libcld3/relevant_script_feature.o \
+	libcld3/sentence_features.o \
+	libcld3/script_span/fixunicodevalue.o \
+	libcld3/script_span/generated_entities.o \
+	libcld3/script_span/generated_ulscript.o \
+	libcld3/script_span/getonescriptspan.o \
+	libcld3/script_span/offsetmap.o \
+	libcld3/script_span/text_processing.o \
+	libcld3/script_span/utf8statetable.o \
+	libcld3/task_context.o \
+	libcld3/task_context_params.o \
+	libcld3/unicodetext.o \
+	libcld3/utils.o \
+	libcld3/workspace.o \
+	cld_3/protos/feature_extractor.pb.o \
+	cld_3/protos/sentence.pb.o \
+	cld_3/protos/task_spec.pb.o
+
+all: clean winlibs libstatcld3.a
+
+libstatcld3.a: $(LIBCLD3)
+	$(AR) rcs libstatcld3.a $(LIBCLD3)
+
+winlibs:
+	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" "../tools/winlibs.R"
+	../windows/protobuf-3.2.0/bin$(WIN)/protoc *.proto --cpp_out=.
+
+clean:
+	rm -f $(OBJECTS) $(SHLIB) $(LIBCLD3) libstatcld3.a cld_3/protos/*.pb.cc cld_3/protos/*.pb.h
+	(cd ..; sh cleanup)
