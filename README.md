@@ -11,8 +11,8 @@
 
 > Google's Compact Language Detector 3 is a neural network model for language 
   identification and the successor of CLD2 (available from) CRAN. This version is still
-  experimental and takes a novell approach to language detection with different properties
-  and outcomes. See https://github.com/google/cld3#readme for more information.
+  experimental and uses a novell algorithm with different properties and outcomes. For
+  more information see: https://github.com/google/cld3#readme
 
 The function `detect_language()` is vectorised and guesses the the language of each string in text or returns NA if the language could not reliably be determined.
 
