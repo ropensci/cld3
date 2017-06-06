@@ -24,7 +24,8 @@ character vector as a whole.
 }
 \examples{
 # Vectorized best guess
-text <- c("To be or not to be?", "Ce n'est pas grave.", "Hij heeft de klok horen luiden maar weet niet waar de klepel hangt.")
+text <- c("To be or not to be?", "Ce n'est pas grave.",
+  "Hij heeft de klok horen luiden maar weet niet waar de klepel hangt.")
 detect_language(text)
 
 # Multiple languages in one text (doesn't seem to work well)
