@@ -8,8 +8,8 @@ Authors@R: c(
   )
 Description: Google's Compact Language Detector 3 is a neural network model for language 
     identification (see <https://github.com/google/cld3#readme> for more information). This
-    version is not merely an update for the 'cld2' library (also available from CRAN) but 
-    rather a novell approach to language detection with different properties and outcomes.
+    version is still experimental and not merely an update for the 'cld2' library (available
+    from CRAN) but rather takes a novell approach with different properties and outcomes.
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true

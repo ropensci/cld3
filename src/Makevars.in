@@ -31,7 +31,7 @@ LIBCLD3 = \
 	cld_3/protos/sentence.pb.o \
 	cld_3/protos/task_spec.pb.o
 
-all: clean libstatcld3.a
+all: libstatcld3.a
 
 libstatcld3.a: $(LIBCLD3)
 	$(AR) rcs libstatcld3.a $(LIBCLD3)

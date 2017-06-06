@@ -1,58 +1,73 @@
-/* Copyright 2016 Google Inc. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-==============================================================================*/
-
-#include <iostream>
-#include <string>
-
 #include "libcld3/base.h"
 #include "libcld3/nnet_language_identifier.h"
 
 #define STRICT_R_HEADERS
 #define R_NO_REMAP
 #include <Rcpp.h>
+#include <string>
 
 using chrome_lang_id::NNetLanguageIdentifier;
 
 // [[Rcpp::export]]
-Rcpp::LogicalVector test() {
-  NNetLanguageIdentifier lang_id(/*min_num_bytes=*/0,
-                                 /*max_num_bytes=*/1000);
+Rcpp::CharacterVector cld3_detect_language(std::vector<std::string> texts){
+  NNetLanguageIdentifier lang_id(0, 1000);
+  size_t len = texts.size();
+  Rcpp::CharacterVector out(len);
+  for (size_t i = 0; i < len; i++) {
+    const NNetLanguageIdentifier::Result result = lang_id.FindLanguage(texts[i]);
+    if(result.is_reliable)
+      out[i] = result.language;
+    else
+      out[i] = NA_STRING;
+  }
+  return out;
+}
 
-  const std::vector<std::string> texts{"This text is written in English.",
-                                       "Text in deutscher Sprache verfasst."};
-  for (const std::string &text : texts) {
-    const NNetLanguageIdentifier::Result result = lang_id.FindLanguage(text);
-    std::cout << "text: " << text << std::endl
-              << "  language: " << result.language << std::endl
-              << "  probability: " << result.probability << std::endl
-              << "  reliable: " << result.is_reliable << std::endl
-              << "  proportion: " << result.proportion << std::endl
-              << std::endl;
+// [[Rcpp::export]]
+Rcpp::DataFrame cld3_detect_language_df(std::vector<std::string> texts) {
+  // Sets: min_num_bytes and max_num_bytes.
+  NNetLanguageIdentifier lang_id(0, 1000);
+  size_t len = texts.size();
+  Rcpp::CharacterVector language(len);
+  Rcpp::NumericVector probability(len);
+  Rcpp::LogicalVector reliable(len);
+  Rcpp::NumericVector proportion(len);
+
+  for (size_t i = 0; i < len; i++) {
+    const NNetLanguageIdentifier::Result result = lang_id.FindLanguage(texts[i]);
+    language[i] = result.language;
+    probability[i] = result.probability;
+    reliable[i] = result.is_reliable;
+    proportion[i] = result.proportion;
   }
 
-  const std::string &text =
-    "This piece of text is in English. Този текст е на Български.";
-  std::cout << "text: " << text << std::endl;
-  const std::vector<NNetLanguageIdentifier::Result> results =
-    lang_id.FindTopNMostFreqLangs(text, /*num_langs*/ 3);
-  for (const NNetLanguageIdentifier::Result &result : results) {
-    std::cout << "  language: " << result.language << std::endl
-              << "  probability: " << result.probability << std::endl
-              << "  reliable: " << result.is_reliable << std::endl
-              << "  proportion: " << result.proportion << std::endl
-              << std::endl;
+  return Rcpp::DataFrame::create(
+    Rcpp::Named("language") = language,
+    Rcpp::Named("probability") = probability,
+    Rcpp::Named("reliable") = reliable,
+    Rcpp::Named("proportion") = proportion
+  );
+}
+
+// [[Rcpp::export]]
+Rcpp::DataFrame cld3_detect_language_mixed(std::string text, size_t len = 3) {
+  // Sets: min_num_bytes and max_num_bytes.
+  NNetLanguageIdentifier lang_id(0, text.size());
+  const std::vector<NNetLanguageIdentifier::Result> results = lang_id.FindTopNMostFreqLangs(text,  len);
+  Rcpp::CharacterVector language(len);
+  Rcpp::NumericVector probability(len);
+  Rcpp::LogicalVector reliable(len);
+  Rcpp::NumericVector proportion(len);
+  for (size_t i = 0; i < len; i++) {
+    language[i] = results[i].language;
+    probability[i] = results[i].probability;
+    reliable[i] = results[i].is_reliable;
+    proportion[i] = results[i].proportion;
   }
-  return true;
+  return Rcpp::DataFrame::create(
+    Rcpp::Named("language") = language,
+    Rcpp::Named("probability") = probability,
+    Rcpp::Named("reliable") = reliable,
+    Rcpp::Named("proportion") = proportion
+  );
 }

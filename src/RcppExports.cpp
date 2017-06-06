@@ -5,19 +5,45 @@
 
 using namespace Rcpp;
 
-// test
-Rcpp::LogicalVector test();
-RcppExport SEXP cld3_test() {
+// cld3_detect_language
+Rcpp::CharacterVector cld3_detect_language(std::vector<std::string> texts);
+RcppExport SEXP cld3_cld3_detect_language(SEXP textsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(test());
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type texts(textsSEXP);
+    rcpp_result_gen = Rcpp::wrap(cld3_detect_language(texts));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cld3_detect_language_df
+Rcpp::DataFrame cld3_detect_language_df(std::vector<std::string> texts);
+RcppExport SEXP cld3_cld3_detect_language_df(SEXP textsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type texts(textsSEXP);
+    rcpp_result_gen = Rcpp::wrap(cld3_detect_language_df(texts));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cld3_detect_language_mixed
+Rcpp::DataFrame cld3_detect_language_mixed(std::string text, size_t len);
+RcppExport SEXP cld3_cld3_detect_language_mixed(SEXP textSEXP, SEXP lenSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type text(textSEXP);
+    Rcpp::traits::input_parameter< size_t >::type len(lenSEXP);
+    rcpp_result_gen = Rcpp::wrap(cld3_detect_language_mixed(text, len));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"cld3_test", (DL_FUNC) &cld3_test, 0},
+    {"cld3_cld3_detect_language", (DL_FUNC) &cld3_cld3_detect_language, 1},
+    {"cld3_cld3_detect_language_df", (DL_FUNC) &cld3_cld3_detect_language_df, 1},
+    {"cld3_cld3_detect_language_mixed", (DL_FUNC) &cld3_cld3_detect_language_mixed, 2},
     {NULL, NULL, 0}
 };
 
