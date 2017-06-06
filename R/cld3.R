@@ -13,10 +13,11 @@
 #' @rdname cld3
 #' @param text a string with text to classify or a connection to read from
 #' @examples # Vectorized best guess
-#' detect_language(c("To be or not to be?", "Ce n'est pas grave.", "猿も木から落ちる"))
+#' text <- c("To be or not to be?", "Ce n'est pas grave.", "Hij heeft de klok horen luiden maar weet niet waar de klepel hangt.")
+#' detect_language(text)
 #'
-#' # Multiple languages in one text
-#' detect_language_mixed("This piece of text is in English. Този текст е на Български.")
+#' # Multiple languages in one text (doesn't seem to work well)
+#' detect_language_mixed(text)
 detect_language <- function(text){
   if(is.data.frame(text)){
     text <- text$text
