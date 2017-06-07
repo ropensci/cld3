@@ -44,7 +44,7 @@ cld3> detect_language_mixed("This piece of text is in English. Този текс
 Binary packages for __OS-X__ or __Windows__ can be installed directly from CRAN:
 
 ```r
-install.packages("protolite")
+install.packages("cld3")
 ```
 
 Installation from source on Linux or OSX requires Google's [Protocol Buffers](https://developers.google.com/protocol-buffers/) library. On __Debian or Ubuntu__ install [libprotobuf-dev](https://packages.debian.org/testing/libprotobuf-dev) and [protobuf-compiler](https://packages.debian.org/testing/protobuf-compiler):
