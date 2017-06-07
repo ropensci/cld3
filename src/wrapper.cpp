@@ -68,6 +68,7 @@ Rcpp::DataFrame cld3_detect_language_mixed(std::string text, size_t len = 3) {
     Rcpp::Named("language") = language,
     Rcpp::Named("probability") = probability,
     Rcpp::Named("reliable") = reliable,
-    Rcpp::Named("proportion") = proportion
+    Rcpp::Named("proportion") = proportion,
+    Rcpp::Named("stringsAsFactors") = false
   );
 }

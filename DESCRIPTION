@@ -1,7 +1,7 @@
 Package: cld3
 Type: Package
 Title: Google's Compact Language Detector 3
-Version: 1.0
+Version: 1.0.9000
 Authors@R: c(
     person("Jeroen", "Ooms", ,"jeroen@berkeley.edu", role = c("aut", "cre")),
     person("Google Inc", role = "cph", comment = "CLD3 C++ library")
