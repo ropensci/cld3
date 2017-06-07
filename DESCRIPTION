@@ -1,15 +1,16 @@
 Package: cld3
 Type: Package
 Title: Google's Compact Language Detector 3
-Version: 0.9000
+Version: 1.0
 Authors@R: c(
     person("Jeroen", "Ooms", ,"jeroen@berkeley.edu", role = c("aut", "cre")),
     person("Google Inc", role = "cph", comment = "CLD3 C++ library")
   )
 Description: Google's Compact Language Detector 3 is a neural network model for language 
-    identification and the successor of CLD2 (available from) CRAN. This version is still
-    experimental and takes a novell approach to language detection with different properties
-    and outcomes. See <https://github.com/google/cld3#readme> for more information.
+    identification and the successor of 'cld2' (available from CRAN). The algorithm is still
+    experimental and takes a novel approach to language detection with different properties
+    and outcomes. It can be useful to combine this with the Bayesian classifier results 
+    from 'cld2'. See <https://github.com/google/cld3#readme> for more information.
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true

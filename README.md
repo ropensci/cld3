@@ -36,3 +36,38 @@ cld3> detect_language_mixed("This piece of text is in English. Този текс
 2       en   0.9999790     TRUE  0.4146341
 3      und   0.0000000    FALSE  0.0000000
 ```
+
+
+
+## Installation
+
+Binary packages for __OS-X__ or __Windows__ can be installed directly from CRAN:
+
+```r
+install.packages("protolite")
+```
+
+Installation from source on Linux or OSX requires Google's [Protocol Buffers](https://developers.google.com/protocol-buffers/) library. On __Debian or Ubuntu__ install [libprotobuf-dev](https://packages.debian.org/testing/libprotobuf-dev) and [protobuf-compiler](https://packages.debian.org/testing/protobuf-compiler):
+
+```
+sudo apt-get install -y libprotobuf-dev protobuf-compiler
+```
+
+On __Fedora__ we need [protobuf-devel](https://apps.fedoraproject.org/packages/protobuf-devel):
+
+```
+sudo yum install protobuf-devel
+````
+
+On __CentOS / RHEL__ we install [protobuf-devel](https://apps.fedoraproject.org/packages/protobuf-devel) via EPEL:
+
+```
+sudo yum install epel-release
+sudo yum install protobuf-devel
+```
+
+On __OS-X__ use [protobuf](https://github.com/Homebrew/homebrew-core/blob/master/Formula/protobuf.rb) from Homebrew:
+
+```
+brew install protobuf
+```
