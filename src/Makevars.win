@@ -47,8 +47,8 @@ libstatcld3.a: $(LIBCLD3)
 	$(AR) rcs libstatcld3.a $(LIBCLD3)
 
 winlibs:
-	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" "../tools/winlibs.R"
-	$(RWINLIB)/bin$(WIN)/protoc cld_3/protos/*.proto --cpp_out=.
+	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" --vanilla "../tools/winlibs.R" $(VERSION)
+	"$(RWINLIB)/bin$(WIN)/protoc" cld_3/protos/*.proto --cpp_out=.
 
 clean:
 	rm -f $(OBJECTS) $(SHLIB) $(LIBCLD3) libstatcld3.a cld_3/protos/*.pb.cc cld_3/protos/*.pb.h
