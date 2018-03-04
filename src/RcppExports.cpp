@@ -40,17 +40,10 @@ BEGIN_RCPP
 END_RCPP
 }
 
-RcppExport SEXP cld3_cld3_detect_language(SEXP);
-RcppExport SEXP cld3_cld3_detect_language_df(SEXP);
-RcppExport SEXP cld3_cld3_detect_language_mixed(SEXP, SEXP);
-
 static const R_CallMethodDef CallEntries[] = {
     {"_cld3_cld3_detect_language", (DL_FUNC) &_cld3_cld3_detect_language, 1},
     {"_cld3_cld3_detect_language_df", (DL_FUNC) &_cld3_cld3_detect_language_df, 1},
     {"_cld3_cld3_detect_language_mixed", (DL_FUNC) &_cld3_cld3_detect_language_mixed, 2},
-    {"cld3_cld3_detect_language",       (DL_FUNC) &cld3_cld3_detect_language,       1},
-    {"cld3_cld3_detect_language_df",    (DL_FUNC) &cld3_cld3_detect_language_df,    1},
-    {"cld3_cld3_detect_language_mixed", (DL_FUNC) &cld3_cld3_detect_language_mixed, 2},
     {NULL, NULL, 0}
 };
 
