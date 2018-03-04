@@ -1,6 +1,7 @@
 # ProtoBuf Version
 VERSION = 3.5.1
 RWINLIB = ../windows/protobuf-${VERSION}
+CXX_STD = CXX11
 
 # Support old toolchain
 COMPILED_BY ?= gcc-4.6.3

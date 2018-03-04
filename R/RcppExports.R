@@ -2,14 +2,14 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 cld3_detect_language <- function(texts) {
-    .Call('cld3_cld3_detect_language', PACKAGE = 'cld3', texts)
+    .Call('_cld3_cld3_detect_language', PACKAGE = 'cld3', texts)
 }
 
 cld3_detect_language_df <- function(texts) {
-    .Call('cld3_cld3_detect_language_df', PACKAGE = 'cld3', texts)
+    .Call('_cld3_cld3_detect_language_df', PACKAGE = 'cld3', texts)
 }
 
 cld3_detect_language_mixed <- function(text, len = 3L) {
-    .Call('cld3_cld3_detect_language_mixed', PACKAGE = 'cld3', text, len)
+    .Call('_cld3_cld3_detect_language_mixed', PACKAGE = 'cld3', text, len)
 }
 
