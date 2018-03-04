@@ -1,9 +1,16 @@
-# Links against libprotobuf build from Rtools gcc toolchain.
+# ProtoBuf Version
+VERSION = 3.5.1
+RWINLIB = ../windows/protobuf-${VERSION}
+
+# Support old toolchain
 COMPILED_BY ?= gcc-4.6.3
-CXX_STD=CXX11
-PKG_CPPFLAGS = -I. -I../windows/protobuf-3.2.0/include
-PKG_LIBS = -L. -lstatcld3 \
-	-L../windows/protobuf-3.2.0/lib${subst gcc,,${COMPILED_BY}}${R_ARCH} -lprotobuf-lite
+ifeq ($(R_COMPILED_BY),-4.6.3)
+VERSION = 3.2.0
+endif
+
+PKG_CPPFLAGS = -I$(RWINLIB)/include
+PKG_LIBS = -L. -lstatcld3 -L$(RWINLIB)/lib${subst gcc,,${COMPILED_BY}}${R_ARCH} \
+	-lprotobuf-lite
 
 LIBCLD3 = \
 	libcld3/base.o \
