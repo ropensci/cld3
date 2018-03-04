@@ -8,7 +8,7 @@ ifeq ($(R_COMPILED_BY),-4.6.3)
 VERSION = 3.2.0
 endif
 
-PKG_CPPFLAGS = -I$(RWINLIB)/include
+PKG_CPPFLAGS = -I. -I$(RWINLIB)/include
 PKG_LIBS = -L. -lstatcld3 -L$(RWINLIB)/lib${subst gcc,,${COMPILED_BY}}${R_ARCH} \
 	-lprotobuf-lite
 
