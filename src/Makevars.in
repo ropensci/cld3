@@ -1,6 +1,7 @@
 CXX_STD=CXX11
 PKG_CPPFLAGS=-I. @cflags@
-PKG_LIBS=-L. -lstatcld3 @libs@
+PKG_LIBS=-Llibcld3 -lstatcld3 @libs@
+STATLIB=libcld3/libstatcld3.a
 
 LIBCLD3 = \
 	libcld3/base.o \
@@ -31,10 +32,12 @@ LIBCLD3 = \
 	cld_3/protos/sentence.pb.o \
 	cld_3/protos/task_spec.pb.o
 
-all: libstatcld3.a
+all: clean
 
-libstatcld3.a: $(LIBCLD3)
-	$(AR) rcs libstatcld3.a $(LIBCLD3)
+$(SHLIB): $(STATLIB)
+
+$(STATLIB): $(LIBCLD3)
+	$(AR) rcs $(STATLIB) $(LIBCLD3)
 
 clean:
-	rm -f $(SHLIB) $(OBJECTS) $(LIBCLD3) libstatcld3.a
+	rm -f $(SHLIB) $(OBJECTS) $(LIBCLD3) $(STATLIB)

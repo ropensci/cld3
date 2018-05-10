@@ -3,7 +3,8 @@ Type: Package
 Title: Google's Compact Language Detector 3
 Version: 1.0.9000
 Authors@R: c(
-    person("Jeroen", "Ooms", ,"jeroen@berkeley.edu", role = c("aut", "cre")),
+    person("Jeroen", "Ooms", ,"jeroen@berkeley.edu", role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0002-4035-0289")),
     person("Google Inc", role = "cph", comment = "CLD3 C++ library")
   )
 Description: Google's Compact Language Detector 3 is a neural network model for language 
