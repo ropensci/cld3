@@ -2,6 +2,7 @@
 
 ##### *R Wrapper for Google's Compact Language Detector 3*
 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/cld3.svg?branch=master)](https://travis-ci.org/ropensci/cld3)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/cld3?branch=master&svg=true)](https://ci.appveyor.com/project/jeroen/cld3)
 [![Coverage Status](https://codecov.io/github/ropensci/cld3/coverage.svg?branch=master)](https://codecov.io/github/ropensci/cld3?branch=master)
