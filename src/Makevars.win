@@ -47,7 +47,7 @@ $(STATLIB): $(LIBCLD3)
 	$(AR) rcs $(STATLIB) $(LIBCLD3)
 
 winlibs:
-	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" --vanilla "../tools/winlibs.R" $(VERSION)
+	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" "../tools/winlibs.R" $(VERSION)
 	"$(RWINLIB)/bin$(WIN)/protoc" cld_3/protos/*.proto --cpp_out=.
 
 clean:
