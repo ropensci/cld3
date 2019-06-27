@@ -1,19 +1,15 @@
 # ProtoBuf Version
-VERSION = 3.5.1
+VERSION = 3.8.0
 RWINLIB = ../windows/protobuf-${VERSION}
 CXX_STD = CXX11
 
-# Support old toolchain
-COMPILED_BY ?= gcc-4.6.3
-ifeq ($(R_COMPILED_BY),-4.6.3)
-VERSION = 3.2.0
-endif
-
 PKG_CPPFLAGS = -I. -I$(RWINLIB)/include
-PKG_LIBS = -L. -lstatcld3 -L$(RWINLIB)/lib${subst gcc,,${COMPILED_BY}}${R_ARCH} \
+PKG_LIBS = -Llibcld3 -lstatcld3 \
+	-L$(RWINLIB)/lib${subst gcc,,${COMPILED_BY}}${R_ARCH} \
 	-L$(RWINLIB)/lib${R_ARCH} \
 	-lprotobuf-lite
 
+STATLIB = libcld3/libstatcld3.a
 LIBCLD3 = \
 	libcld3/base.o \
 	libcld3/embedding_feature_extractor.o \
@@ -43,15 +39,17 @@ LIBCLD3 = \
 	cld_3/protos/sentence.pb.o \
 	cld_3/protos/task_spec.pb.o
 
-all: clean winlibs libstatcld3.a
+all: clean winlibs
 
-libstatcld3.a: $(LIBCLD3)
-	$(AR) rcs libstatcld3.a $(LIBCLD3)
+$(SHLIB): $(STATLIB)
+
+$(STATLIB): $(LIBCLD3)
+	$(AR) rcs $(STATLIB) $(LIBCLD3)
 
 winlibs:
 	"${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" --vanilla "../tools/winlibs.R" $(VERSION)
 	"$(RWINLIB)/bin$(WIN)/protoc" cld_3/protos/*.proto --cpp_out=.
 
 clean:
-	rm -f $(OBJECTS) $(SHLIB) $(LIBCLD3) libstatcld3.a cld_3/protos/*.pb.cc cld_3/protos/*.pb.h
+	rm -f $(OBJECTS) $(SHLIB) $(LIBCLD3) $(STATLIB) cld_3/protos/*.pb.cc cld_3/protos/*.pb.h
 	(cd ..; sh cleanup)
