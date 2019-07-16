@@ -6,9 +6,8 @@ pandoc: false
 
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      env: R_CODECOV=true
+    - dist: trusty
+    - dist: xenial
     - os: osx
       brew_packages: protobuf
     - os: osx
@@ -24,18 +23,3 @@ addons:
       - libprotobuf-dev
       - libprotoc-dev
       - protobuf-compiler
-      - valgrind
-
-r_github_packages:
-  - jimhester/covr
-
-warnings_are_errors: true
-#r_check_revdep: true
-
-notifications:
-  email:
-    on_success: change
-    on_failure: change
-
-after_success:
-  - if [[ "${R_CODECOV}" ]]; then R -e 'covr::codecov()'; fi
