@@ -1,6 +1,6 @@
 # cld3
 
-##### *R Wrapper for Google's Compact Language Detector 3*
+> R Wrapper for Google's Compact Language Detector 3
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/cld3.svg?branch=master)](https://travis-ci.org/ropensci/cld3)
@@ -9,10 +9,12 @@
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/cld3)](https://cran.r-project.org/package=cld3)
 
 
-> Google's Compact Language Detector 3 is a neural network model for language 
-  identification and the successor of CLD2 (available from) CRAN. This version is still
-  experimental and uses a novell algorithm with different properties and outcomes. For
-  more information see: https://github.com/google/cld3#readme
+Google's Compact Language Detector 3 is a neural network model for language 
+identification and the successor of CLD2 (available from) CRAN. This version is still
+experimental and uses a novell algorithm with different properties and outcomes. For
+more information see: https://github.com/google/cld3#readme
+
+## Example
 
 The function `detect_language()` is vectorised and guesses the the language of each string in text or returns NA if the language could not reliably be determined.
 
