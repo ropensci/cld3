@@ -11,3 +11,4 @@ src/*.o
 src/cld_3/protos/*.pb.h
 src/cld_3/protos/*.pb.cc
 src/Makevars
+configure.log

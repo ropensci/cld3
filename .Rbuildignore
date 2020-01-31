@@ -10,3 +10,4 @@
 ^src/cld_3/protos/.*\.pb\.h$
 ^src/Makevars$
 ^src/libcld3/.*\.a$
+^configure.log$
