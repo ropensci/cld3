@@ -84,9 +84,12 @@ else
 fi
 
 # Complicated POSIX shell method to test if one is substring of the other
-if [ "${PROTOC_VERSION#*$PKGCONFIG_MODVERSION}" = "$PROTOC_VERSION" ]; then
-  echo "Warning: protoc version $PROTOC_VERSION might not match libproto version $PKGCONFIG_MODVERSION."
-fi
+case "$PROTOC_VERSION" in
+  *$PKGCONFIG_MODVERSION*)
+  echo "protoc version $PROTOC_VERSION matches libproto version $PKGCONFIG_MODVERSION";;
+  *)
+  echo "Warning: protoc version $PROTOC_VERSION might not match libproto version $PKGCONFIG_MODVERSION";;
+esac
 
 # Compile proto file
 cd src/cld_3/protos
