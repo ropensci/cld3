@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 #This ensures a placeholder is shipped with CMD build.
 for file in src/cld_3/protos/*.proto; do
   echo "#error This is a placeholder file." > ${file%.proto}.pb.cc
