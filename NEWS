@@ -1,3 +1,6 @@
+1.4.1
+  - Fix typo in configure script
+
 1.4
   - Use CXX11 in configure script, needed by protobuf 3.14
   - Do not use bash in configure script
