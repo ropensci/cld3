@@ -1,7 +1,7 @@
 Package: cld3
 Type: Package
 Title: Google's Compact Language Detector 3
-Version: 1.4.1
+Version: 1.4.2
 Authors@R: c(
     person("Jeroen", "Ooms", ,"jeroen@berkeley.edu", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0002-4035-0289")),
@@ -13,7 +13,6 @@ Description: Google's Compact Language Detector 3 is a neural network model for 
     from 'cld2'. See <https://github.com/google/cld3#readme> for more information.
 License: Apache License 2.0
 Encoding: UTF-8
-LazyData: true
 URL: https://docs.ropensci.org/cld3/,  https://github.com/ropensci/cld3 (devel)
     https://github.com/google/cld3 (upstream)
 Imports: Rcpp
