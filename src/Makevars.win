@@ -6,7 +6,7 @@ CXX_STD = CXX11
 PKG_CPPFLAGS = -I. -I$(RWINLIB)/include
 PKG_LIBS = -Llibcld3 -lstatcld3 \
 	-L$(RWINLIB)/lib${subst gcc,,${COMPILED_BY}}${R_ARCH} \
-	-L$(RWINLIB)/lib${R_ARCH} \
+	-L$(RWINLIB)/lib${R_ARCH}${CRT} \
 	-lprotobuf-lite
 
 STATLIB = libcld3/libstatcld3.a
