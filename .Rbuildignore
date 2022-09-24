@@ -11,3 +11,4 @@
 ^src/Makevars$
 ^src/libcld3/.*\.a$
 ^configure.log$
+^\.github$
