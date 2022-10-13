@@ -1,3 +1,6 @@
+1.4.4
+  - Compile with CXX17 if available (needed for recent libprotobuf)
+
 1.4.3
   - Update libcld3 from upstream (fixes CRAN compiler warning)
 
