@@ -1,4 +1,3 @@
-CXX_STD=CXX11
 PKG_CPPFLAGS=-I. @cflags@
 PKG_LIBS=-Llibcld3 -lstatcld3 @libs@
 STATLIB=libcld3/libstatcld3.a
