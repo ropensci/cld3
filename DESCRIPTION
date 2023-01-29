@@ -13,8 +13,9 @@ Description: Google's Compact Language Detector 3 is a neural network model for 
     from 'cld2'. See <https://github.com/google/cld3#readme> for more information.
 License: Apache License 2.0
 Encoding: UTF-8
-URL: https://docs.ropensci.org/cld3/,  https://github.com/ropensci/cld3 (devel)
-    https://github.com/google/cld3 (upstream)
+URL: https://docs.ropensci.org/cld3/
+    https://github.com/ropensci/cld3
+    https://ropensci.r-universe.dev/cld3
 Imports: Rcpp
 LinkingTo: Rcpp
 RoxygenNote: 6.0.1.9000
