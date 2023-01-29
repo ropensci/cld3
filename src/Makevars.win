@@ -1,5 +1,11 @@
 # ProtoBuf Version
+VERSION = 3.19.4
+
+# Need older build for R < 4.0
+ifeq ($(R_COMPILED_BY),gcc 4.9.3)
 VERSION = 3.12.4
+endif
+
 RWINLIB = ../windows/protobuf-${VERSION}
 PKG_CPPFLAGS = -I. -I$(RWINLIB)/include -DUSENEWAPI
 PKG_LIBS = -Llibcld3 -lstatcld3 \

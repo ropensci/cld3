@@ -1,5 +1,5 @@
 1.5.0
-  - Windows: upgrade to libprotobuf 3.12.4
+  - Windows: upgrade to libprotobuf 3.19.4
   - No longer force CXX11 (use local C++ default std)
 
 1.4.4
