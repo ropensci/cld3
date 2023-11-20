@@ -36,7 +36,7 @@ elif [ `uname` = "Darwin" ]; then
     BREWDIR=`brew --prefix`
   else
     curl -sfL "https://autobrew.github.io/scripts/$PKG_BREW_NAME" > autobrew
-    . autobrew
+    . ./autobrew
   fi
 fi
 
