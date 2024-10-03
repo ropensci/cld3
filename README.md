@@ -46,7 +46,7 @@ Binary packages for __OS-X__ or __Windows__ can be installed directly from CRAN:
 install.packages("cld3")
 ```
 
-Installation from source on Linux or OSX requires Google's [Protocol Buffers](https://developers.google.com/protocol-buffers/) library. On __Debian or Ubuntu__ install [libprotobuf-dev](https://packages.debian.org/testing/libprotobuf-dev) and [protobuf-compiler](https://packages.debian.org/testing/protobuf-compiler):
+Installation from source on Linux or OSX requires Google's [Protocol Buffers](https://protobuf.dev) library. On __Debian or Ubuntu__ install [libprotobuf-dev](https://packages.debian.org/testing/libprotobuf-dev) and [protobuf-compiler](https://packages.debian.org/testing/protobuf-compiler):
 
 ```
 sudo apt-get install -y libprotobuf-dev protobuf-compiler
